@@ -8,7 +8,7 @@
   "chatbot", 
   "telegrambot"
   ],
-  "website": "https://github.com/henriqueclaranhan/telegram-music-downloader-bot",
+  "website": "https://github.com/rioprojectx/downloader-audio",
   "success_url": "https://t.me/tlmusicdownloader_bot",
   "env": {
     "TOKEN": {
