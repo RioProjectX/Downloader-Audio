@@ -60,10 +60,10 @@ class Chat:
         self.message_id = msg['message_id']
 
         self.messages = {
-            'start':'🤖 Hello, '+ self.user_name +'!\n\n'
+            'start':'🤖 Hello, '+ self.user_name +'! Saya Bot Pintar Yang Bisa Mendownload Lagu Dari Youtube\n\n'
                     '📩 Send me:\n\n'
-                    '"*/music* _song name_"  or\n'
-                    '"*/music* _musician name - song name_"\n\n'
+                    '"*/music* _Judul Lagu_"  or\n'
+                    '"*/music* _Nama Artis - Judul Lagu_"\n\n'
                     'to order some music. 🎶',
             
             'spotify_input_error':"‼️ *Oops! The bot doesn't support Spotify links!*\n"
@@ -105,18 +105,18 @@ class Chat:
         min_duration, split_count = Music.get_duration(self, result)
 
         if int(min_duration) < 30 and split_count < 3:
-            file_name = Music.get_title(self, result) +' - @TLMusicDownloader_bot '+str(randint(0,999999))+'.mp3'
+            file_name = Music.get_title(self, result) +' - @youtubedlriobot '+str(randint(0,999999))+'.mp3'
             file_name = file_name.replace('"', '')
 
             self.send_message(f"🎵 {Music.get_title(self, result)}\n🔗 {Music.get_link(self, result)}")
-            downloading_message = self.send_message('⬇️ Downloading... \n_(this may take a while.)_')
+            downloading_message = self.send_message('⬇️ Mendownload... \n_(this may take a while.)_')
 
             Music.download_music(self, file_name, Music.get_link(self, result))
 
             try:
                 self.send_audio(file_name)
                 self.delete_message(downloading_message)
-                self.send_message('✅ Sucess!')
+                self.send_message('✅ Berhasil! Jangan Lupa Subs @rioprojects')
                 print ("\nSucess!\n")
             except:
                 print("\nError")
